@@ -1,0 +1,31 @@
+name: AdvancedGuilds
+version: 1.2.5
+main: com.c0ur4g3.guilds.AdvancedGuilds
+api-version: "1.21"
+author: c0ur4g3
+description: "Базовая система гильдий для Purpur 1.21.X"
+website: https://github.com/c0ur4g3n3k0-lang
+
+softdepend:
+  - Vault
+  - PlaceholderAPI
+
+commands:
+  guild:
+    description: "Основная команда гильдий"
+    aliases:
+      - g
+    usage: "/guild <подкоманда>"
+    permission: advancedguilds.use
+  guilds:
+    description: "Управление гильдиями (администраторское)"
+    usage: "/guilds <подкоманда>"
+    permission: advancedguilds.admin
+
+permissions:
+  advancedguilds.use:
+    description: "Базовое использование команд гильдий"
+    default: true
+  advancedguilds.admin:
+    description: "Административные команды гильдий"
+    default: op

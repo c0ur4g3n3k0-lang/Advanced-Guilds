@@ -1,0 +1,118 @@
+# ===================================
+# AdvancedGuilds Configuration
+# ===================================
+
+database:
+  mysql: false
+  host: "localhost"
+  port: 3306
+  name: "advancedguilds"
+  user: "root"
+  password: "password"
+  pool-size: 10
+
+guild:
+  creation-cost: 5000.0
+  max-members: 50
+  name:
+    min-length: 3
+    max-length: 16
+    regex: "^[a-zA-Z0-9а-яА-Яa-zA-Z_]+$"
+  tag:
+    min-length: 2
+    max-length: 5
+    regex: "^[a-zA-Z0-9а-яА-Я_]+$"
+  chat:
+    format: "<dark_gray>[<gradient:gold:yellow>Гильдия</gradient>]</dark_gray> <gray>[<rank>]</gray> <white><player></white><dark_gray>:</dark_gray> <yellow><message></yellow>"
+  forbidden-words:
+    - "admin"
+    - "fuck"
+    - "shit"
+
+# Дефолтные ранги при создании гильдии
+default-ranks:
+  - key: "leader"
+    name: "Лидер"
+    priority: 100
+    permissions:
+      - INVITE
+      - KICK
+      - MANAGE_SETTINGS
+      - BANK_WITHDRAW
+      - CHAT_ACCESS
+  - key: "officer"
+    name: "Офицер"
+    priority: 75
+    permissions:
+      - INVITE
+      - KICK
+      - CHAT_ACCESS
+  - key: "veteran"
+    name: "Ветеран"
+    priority: 25
+    permissions:
+      - CHAT_ACCESS
+  - key: "recruit"
+    name: "Рекрут"
+    priority: 1
+    permissions:
+      - CHAT_ACCESS
+
+messages:
+  prefix: "<dark_gray>[<gradient:gold:yellow>Гильдии</gradient>]</dark_gray> "
+  no-guild: "<red>Вы не состоите ни в одной гильдии.</red>"
+  already-in-guild: "<red>Вы уже состоите в гильдии.</red>"
+  not-leader: "<red>У вас недостаточно прав для этого действия.</red>"
+  guild-created: "<green>Гильдия <yellow><name></yellow> успешно создана!</green>"
+  guild-deleted: "<red>Гильдия <yellow><name></yellow> была расформирована.</red>"
+  guild-left: "<yellow>Вы покинули гильдию <gold><name></gold>.</yellow>"
+  guild-kicked: "<red>Игрок <yellow><player></yellow> был исключён из гильдии.</red>"
+  guild-kicked-target: "<red>Вы были исключены из гильдии <yellow><name></yellow>.</red>"
+  player-joined: "<green>Игрок <yellow><player></yellow> вступил в гильдию!</green>"
+  invite-sent: "<green>Приглашение отправлено игроку <yellow><player></yellow>.</green>"
+  invite-received: "<yellow>Вас пригласили в гильдию <gold><guild></gold>. <green><click:run_command:'/guild join <guild>'>Принять</click></green>"
+  not-invited: "<red>У вас нет приглашения в эту гильдию.</red>"
+  insufficient-funds: "<red>Недостаточно средств. Требуется: <yellow><amount></yellow> монет.</red>"
+  deposited: "<green>Вы внесли <yellow><amount></yellow> монет в казну гильдии.</green>"
+  withdrawn: "<green>Вы сняли <yellow><amount></yellow> монет из казны гильдии.</green>"
+  bank-insufficient: "<red>В казне гильдии недостаточно средств.</red>"
+  invalid-name: "<red>Недопустимое название. Длина 3-16 символов, только буквы, цифры и _.</red>"
+  name-taken: "<red>Гильдия с таким названием уже существует.</red>"
+  player-not-found: "<red>Игрок <yellow><player></yellow> не найден.</red>"
+  player-already-member: "<red>Этот игрок уже состоит в гильдии.</red>"
+  chat-enabled: "<green>Режим гильдийского чата включён. Введите <yellow>/g chat</yellow> для отключения.</green>"
+  chat-disabled: "<yellow>Режим гильдийского чата отключён.</yellow>"
+  enter-guild-name: "<yellow>Введите название новой гильдии в чат (или <red>отмена</red> для отмены):</yellow>"
+  enter-guild-tag: "<yellow>Введите новый тег гильдии в чат (или <red>отмена</red> для отмены):</yellow>"
+  action-cancelled: "<red>Действие отменено.</red>"
+  action-timeout: "<red>Время ввода истекло. Действие отменено.</red>"
+  friendly-fire-on: "<green>Дружественный огонь включён.</green>"
+  friendly-fire-off: "<red>Дружественный огонь выключен.</red>"
+  tag-changed: "<green>Тег гильдии изменён на <tag>.</green>"
+  no-permission-rank: "<red>Ваш ранг не позволяет выполнить это действие.</red>"
+  invalid-amount: "<red>Введите корректную сумму.</red>"
+  invalid-tag: "<red>Недопустимый тег. Длина 2-5 символов, только буквы, цифры и _.</red>"
+  rank-promoted: "<green>Ранг игрока <yellow><player></yellow> повышен до <gold><rank></gold>.</green>"
+  rank-demoted: "<yellow>Ранг игрока <yellow><player></yellow> понижен до <gold><rank></gold>.</yellow>"
+  cannot-manage-member: "<red>Вы не можете управлять участником с равным или более высоким рангом.</red>"
+  ally-request-sent: "<green>Запрос на союз отправлен гильдии <yellow><guild></yellow>.</green>"
+  ally-request-received: "<yellow>Гильдия <gold><guild></gold> предлагает союз. Примите: <green>/guild allyaccept <guild></green>"
+  ally-formed: "<green>Союз с гильдией <yellow><guild></yellow> установлен!</green>"
+  ally-no-request: "<red>Нет активного запроса на союз от этой гильдии.</red>"
+  enemy-declared: "<red>Гильдия <yellow><guild></yellow> объявлена врагом.</red>"
+  neutral-set: "<yellow>Отношения с гильдией <gold><guild></gold> сброшены до нейтральных.</yellow>"
+  guild-not-found: "<red>Гильдия <yellow><guild></yellow> не найдена.</red>"
+  cannot-relate-self: "<red>Нельзя установить отношения с собственной гильдией.</red>"
+  relation-ally-established: "<green>Наша гильдия заключила союз с гильдией <tag>!</green>"
+  relation-ally-broken: "<red>Союз с гильдией <tag> был расторгнут!</red>"
+  relation-enemy-declared: "<dark_red>Гильдия <tag> объявила нам войну!</dark_red>"
+  relation-enemy-declared-source: "<dark_red>Наша гильдия объявила войну гильдии <tag>!</dark_red>"
+  relation-neutral-set: "<yellow>Отношения с гильдией <tag> сброшены до нейтральных.</yellow>"
+  gui-relations-allies: "<gray>Союзники:</gray>"
+  gui-relations-enemies: "<gray>Враги:</gray>"
+  gui-relations-neutral: "<gray>Нейтралитет:</gray>"
+  gui-relations-none: "<gray>Нет</gray>"
+  gui-relations-more: "<gray> и ещё <white><count></white>...</gray>"
+
+placeholders:
+  no-rank: "Нет"
